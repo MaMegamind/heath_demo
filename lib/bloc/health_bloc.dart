@@ -136,11 +136,11 @@ class HealthBloc extends Bloc<HealthEvent, HealthState> {
 
     // get steps for today (i.e., since midnight)
     final now = DateTime.now();
-    final midnight = DateTime(now.year, now.month, now.day);
+    final midnight = now.subtract(const Duration(hours: 8));
 
-    bool stepsPermission = await Health().hasPermissions([HealthDataType.STEPS]) ?? false;
+    bool stepsPermission = await Health().hasPermissions([event.dataType]) ?? false;
     if (!stepsPermission) {
-      stepsPermission = await Health().requestAuthorization([HealthDataType.STEPS]);
+      stepsPermission = await Health().requestAuthorization([event.dataType]);
     }
 
     if (stepsPermission) {

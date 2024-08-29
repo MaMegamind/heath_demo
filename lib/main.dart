@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:health/health.dart';
 import 'package:heath_demo/bloc/health_bloc.dart';
 
 void main() => runApp(const HealthApp());
@@ -33,24 +34,24 @@ class HealthApp extends StatelessWidget {
                           onPressed: () {
                             bloc.add(AuthorizeHealth());
                           },
-                          style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue)),
+                          style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.blue)),
                           child: const Text("Authenticate", style: TextStyle(color: Colors.white))),
                       if (Platform.isAndroid)
                         TextButton(
                             onPressed: () {},
-                            style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue)),
+                            style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.blue)),
                             child: const Text("Check Health Connect Status", style: TextStyle(color: Colors.white))),
                       TextButton(
                           onPressed: () {
                             bloc.add(FetchData(bloc.types));
                           },
-                          style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue)),
+                          style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.blue)),
                           child: const Text("Fetch Data", style: TextStyle(color: Colors.white))),
                       TextButton(
                           onPressed: () {
-                            bloc.add(FetchSteps());
+                            bloc.add(FetchSteps(HealthDataType.HEART_RATE));
                           },
-                          style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue)),
+                          style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.blue)),
                           child: const Text("Fetch Step Data", style: TextStyle(color: Colors.white))),
                       // TextButton(
                       //     onPressed: revokeAccess,

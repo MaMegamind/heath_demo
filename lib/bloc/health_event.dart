@@ -10,7 +10,11 @@ class FetchData extends HealthEvent {
 }
 
 // fetch steps
-class FetchSteps extends HealthEvent {}
+class FetchSteps extends HealthEvent {
+  final HealthDataType dataType;
+
+  FetchSteps(this.dataType);
+}
 
 // authorize
 class AuthorizeHealth extends HealthEvent {}
