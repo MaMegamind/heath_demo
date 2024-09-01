@@ -7,6 +7,8 @@ import 'package:heath_demo/bloc/health_bloc.dart';
 
 void main() => runApp(const HealthApp());
 
+// todo check for return model for android and ios
+// todo check how to send data us package for app
 class HealthApp extends StatelessWidget {
   const HealthApp({super.key});
 
