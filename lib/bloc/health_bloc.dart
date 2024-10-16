@@ -114,7 +114,7 @@ class HealthBloc extends Bloc<HealthEvent, HealthState> {
     _healthDataList = Health().removeDuplicates(_healthDataList);
 
     for (var data in _healthDataList) {
-      // debugPrint(toJsonString(data));
+      print(data.toJson());
     }
 
     // update the UI to display the results
